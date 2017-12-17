@@ -1,0 +1,1013 @@
+<meta content="width=device-width,initial-scale=1" name="viewport" />
+<section class="container" id="TranscriptionFromAV">
+    <!-- Instructions -->
+    <div class="instructions_1">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel panel-primary">
+                <!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature --><a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>Phase 1: Choose a song you would prefer to sing.</strong></a>
+                <div class="panel-body" id="instructionBody">
+                    <p>Listen to a short excerpt from a pair of songs. You will be asked which of these songs you would prefer to sing as well as your familiarity and preference for them.</p>
+
+                    <ul>
+                        <li>Please listen to each sample all the way through before making your decision</li>
+                        <li>You can listen to each sample only twice before making your decision</li>
+                        <li>Try not to overthink and make your choice as quickly as possible</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instructions -->
+    <!-- Video transcription layout -->
+
+<div class="FAC">
+    <div id="pair1">
+        <label for="pair1">Play the following audio samples:</label>
+        <div class="player" id="player1"> 
+    	    <audio control="" id="audiotag1a" src="${link1a}"></audio>
+    	    <button id="button1a" type="button">Play Sample 1</button>
+    	    <audio control="" id="audiotag1b" src="${link1b}"></audio>
+    	    <button id="button1b" type="button">Play Sample 2</button>
+        </div>
+
+        <div class="singing" id="sing1">
+            <br><label>Which of these samples would you prefer to sing?</label><br>
+            <input id="song1a" name="sing1" type="radio" value="1"/><label for="sing1a" style="padding-left: 10px  "> Sample 1 </label>
+            <input id="song1b" name="sing1" type="radio" value="2" /><label for="sing1b" style="padding-left: 10px "> Sample 2 </label>
+        </div>
+
+        <div class="listening" id="listen1">
+            <br><label>Which of these samples would you prefer to listen to?</label><br>
+            <input id="listen1a" name="listen1" type="radio" value="1"/><label for="listen1" style="padding-left: 10px  "> Sample 1 </label>
+            <input id="listen1b" name="listen1" type="radio" value="2" /><label for="listen1" style="padding-left: 10px "> Sample 2 </label>
+        </div>
+
+        <div class="familiarity" id=fam1a>
+            <br><label>Are you familiar with Sample 1?</label><br>
+            <input id="fam1aY" name="fam1Y" type="radio" value="Y"/><label for="fam1aY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam1aN" name="fam1N" type="radio" value="N" /><label for="fam1aN" style="padding-left: 10px "> No </label>
+        </div>
+
+        <div class="familiarity" id="fam1b">
+            <br><label>Are you familiar with Sample 2?</label><br>
+            <input id="fam1bY" name="fam1bY" type="radio" value="Y"/><label for="fam1bY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam1bN" name="fam1bN" type="radio" value="N" /><label for="fam1bN" style="padding-left: 10px "> No </label>
+        </div>
+        <br>
+    </div>
+
+    <div id="pair2">
+        <label for="pair2">Play the following audio samples:</label>
+        <div class="player" id="player2"> 
+            <audio control="" id="audiotag2a" src="${link2a}">&nbsp;</audio>
+            <button id="button2a" type="button">Play Sample 3</button>
+            <audio control="" id="audiotag2b" src="${link2b}">&nbsp;</audio>
+            <button id="button2b" type="button">Play Sample 4</button>
+        </div>
+
+        <div class="singing" id="sing2a">
+            <br><label>Which of these samples would you prefer to sing?</label><br>
+            <input id="sing2a" name="sing2a" type="radio" value="1"/><label for="sing2a" style="padding-left: 10px  "> Sample 3 </label>
+            <input id="sing2b" name="sing2b" type="radio" value="2" /><label for="sing2b" style="padding-left: 10px "> Sample 4 </label>
+        </div>
+
+        <div class="listening" id="listen2">
+            <br><label>Which of these samples would you prefer to listen to?</label><br>
+            <input id="listen2a" name="listen2a" type="radio" value="1"/><label for="listen2a" style="padding-left: 10px  "> Sample 3 </label>
+            <input id="listen2b" name="listen2b" type="radio" value="2" /><label for="listen2b" style="padding-left: 10px "> Sample 4 </label>
+        </div>
+
+        <div class="familiarity" id=fam2a>
+            <br><label>Are you familiar with Sample 3?</label><br>
+            <input id="fam2aY" name="fam2aY" type="radio" value="Y"/><label for="fam2aY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam2bN" name="fam2bN" type="radio" value="N" /><label for="fam2bN" style="padding-left: 10px "> No </label>
+        </div>
+
+        <div class="familiarity" id="fam2b">
+            <br><label>Are you familiar with Sample 4?</label><br>
+            <input id="fam2bY" name="fam2bY" type="radio" value="Y"/><label for="fam2bY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam2bN" name="fam2bN" type="radio" value="N" /><label for="fam2bN" style="padding-left: 10px "> No </label>
+        </div>
+        <br>
+    </div>
+
+    <div id="pair3">
+        <label for="pair3">Play the following audio samples:</label>
+        <div class="player" id="player3"> 
+            <audio control="" id="audiotag3a" src="${link3a}">&nbsp;</audio>
+            <button id="button3a" type="button">Play Sample 5</button>
+            <audio control="" id="audiotag3b" src="${link3b}">&nbsp;</audio>
+            <button id="button3b" type="button">Play Sample 6</button>
+        </div>
+
+        <div class="singing" id="sing3a">
+            <br><label>Which of these samples would you prefer to sing?</label><br>
+            <input id="sing3a" name="sing3a" type="radio" value="1"/><label for="sing3a" style="padding-left: 10px  "> Sample 5 </label>
+            <input id="sing3b" name="sing3b" type="radio" value="2" /><label for="sing3b" style="padding-left: 10px "> Sample 6 </label>
+        </div>
+
+        <div class="listening" id="listen3">
+            <br><label>Which of these samples would you prefer to listen to?</label><br>
+            <input id="listen3a" name="listen3a" type="radio" value="1"/><label for="listen3a" style="padding-left: 10px  "> Sample 5 </label>
+            <input id="listen3b" name="listen3b" type="radio" value="2" /><label for="listen3b" style="padding-left: 10px "> Sample 6 </label>
+        </div>
+
+        <div class="familiarity" id=fam3a>
+            <br><label>Are you familiar with Sample 5?</label><br>
+            <input id="fam3aY" name="fam3aY" type="radio" value="Y"/><label for="fam3aY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam3bN" name="fam3bN" type="radio" value="N" /><label for="fam3bN" style="padding-left: 10px "> No </label>
+        </div>
+
+        <div class="familiarity" id="fam3b">
+            <br><label>Are you familiar with Sample 6?</label><br>
+            <input id="fam3bY" name="fam3bY" type="radio" value="Y"/><label for="fam3bY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam3bN" name="fam3bN" type="radio" value="N" /><label for="fam3bN" style="padding-left: 10px "> No </label>
+        </div>
+        <br>
+    </div>
+
+    <div id="pair4">
+        <label for="pair4">Play the following audio samples:</label>
+        <div class="player" id="player4"> 
+            <audio control="" id="audiotag4a" src="${link4a}">&nbsp;</audio>
+            <button id="button4a" type="button">Play Sample 7</button>
+            <audio control="" id="audiotag4b" src="${link4b}">&nbsp;</audio>
+            <button id="button4b" type="button">Play Sample 8</button>
+        </div>
+
+        <div class="singing" id="sing4a">
+            <br><label>Which of these samples would you prefer to sing?</label><br>
+            <input id="sing4a" name="sing4a" type="radio" value="1"/><label for="sing4a" style="padding-left: 10px  "> Sample 7 </label>
+            <input id="sing4b" name="sing4b" type="radio" value="2" /><label for="sing4b" style="padding-left: 10px "> Sample 8 </label>
+        </div>
+
+        <div class="listening" id="listen4">
+            <br><label>Which of these samples would you prefer to listen to?</label><br>
+            <input id="listen4a" name="listen4a" type="radio" value="1"/><label for="listen4a" style="padding-left: 10px  "> Sample 7 </label>
+            <input id="listen4b" name="listen4b" type="radio" value="2" /><label for="listen4b" style="padding-left: 10px "> Sample 8 </label>
+        </div>
+
+        <div class="familiarity" id=fam4a>
+            <br><label>Are you familiar with Sample 7?</label><br>
+            <input id="fam4aY" name="fam4aY" type="radio" value="Y"/><label for="fam4aY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam4bN" name="fam4bN" type="radio" value="N" /><label for="fam4bN" style="padding-left: 10px "> No </label>
+        </div>
+
+        <div class="familiarity" id="fam4b">
+            <br><label>Are you familiar with Sample 8?</label><br>
+            <input id="fam4bY" name="fam4bY" type="radio" value="Y"/><label for="fam4bY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam4bN" name="fam4bN" type="radio" value="N" /><label for="fam4bN" style="padding-left: 10px "> No </label>
+        </div>
+        <br>
+    </div>
+
+    <div id="pair5">
+        <label for="pair5">Play the following audio samples:</label>
+        <div class="player" id="player5"> 
+            <audio control="" id="audiotag5a" src="${link5a}">&nbsp;</audio>
+            <button id="button5a" type="button">Play Sample 9</button>
+            <audio control="" id="audiotag5b" src="${link5b}">&nbsp;</audio>
+            <button id="button5b" type="button">Play Sample 10</button>
+        </div>
+
+        <div class="singing" id="sing5a">
+            <br><label>Which of these samples would you prefer to sing?</label><br>
+            <input id="sing5a" name="sing5a" type="radio" value="1"/><label for="sing5a" style="padding-left: 10px  "> Sample 9 </label>
+            <input id="sing5b" name="sing5b" type="radio" value="2" /><label for="sing5b" style="padding-left: 10px "> Sample 10 </label>
+        </div>
+
+        <div class="listening" id="listen5">
+            <br><label>Which of these samples would you prefer to listen to?</label><br>
+            <input id="listen5a" name="listen5a" type="radio" value="1"/><label for="listen5a" style="padding-left: 10px  "> Sample 9 </label>
+            <input id="listen5b" name="listen5b" type="radio" value="2" /><label for="listen5b" style="padding-left: 10px "> Sample 10 </label>
+        </div>
+
+        <div class="familiarity" id=fam5a>
+            <br><label>Are you familiar with Sample 9?</label><br>
+            <input id="fam5aY" name="fam5aY" type="radio" value="Y"/><label for="fam5aY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam5bN" name="fam5bN" type="radio" value="N" /><label for="fam5bN" style="padding-left: 10px "> No </label>
+        </div>
+
+        <div class="familiarity" id="fam5b">
+            <br><label>Are you familiar with Sample 10?</label><br>
+            <input id="fam5bY" name="fam5bY" type="radio" value="Y"/><label for="fam5bY" style="padding-left: 10px  "> Yes </label>
+            <input id="fam5bN" name="fam5bN" type="radio" value="N" /><label for="fam5bN" style="padding-left: 10px "> No </label>
+        </div>
+        <br>
+    </div>
+</div>
+
+<div class="instructions_1">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel panel-primary">
+                <!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature --><a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>Phase 2: Singing decision making process</strong> </a>
+                <div class="panel-body" id="instructionBody2">
+                    <label for="AHP">You have just completed the first phase of this task. The second phase includes a series of questions that asks you how you made your decisions. You will be asked to compare how important one factor was in making your decision compared to another. For example: "How important was your familiarity with the song in making your decision compared to how easy it would be for you to sing it? To ease your task, question 1 will be a complete sentence, and following questions will be shortened, but follow the same format (i.e. preference to listen compared to genre).</label>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="AHP">
+    <div id="globals">
+        <!-- <br><label>Which of these samples would you prefer to sing?</label><br>
+        <input id="songa" name="sing1" type="radio" value="1"/><label for="sing1" style="padding-left: 10px  "> Sample 1 </label>
+        <input id="songb" name="sing1" type="radio" value="2" /><label for="sing1" style="padding-left: 10px "> Sample 2 </label> -->
+        <div id="ahp1">
+            <form action="">
+                <label class="statement">1) How important was your familiarity with the song compared to the genre in making your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">2) Familiarity as opposed to your preference to listen in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">3) Familiarity as opposed to your preference to listen in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">4) Familiarity as opposed to your ability to reproduce the vocals in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">5) Genre as opposed to your preference to listen in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">6) Genre as opposed to your ability to reproduce the vocals in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">7) Your preference to listen as opposed to your ability to reproduce the vocals in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+ 
+            <form action="">
+                <label class="statement">8) Highly familiar as opposed to not familiar at all in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+            
+            <form action="">
+                <label class="statement">9) Easily reproducible as opposed to very difficult to reproduce in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">10) Easily reproducible as opposed to moderately reproducible in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">11) Very pleasurable to listen to as opposed to not at all pleasurable to listen to in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+            <form action="">
+                <label class="statement">12) Very pleasurable to listen to as opposed to moderately pleasurable to listen to in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">13) The song genre was Pop as opposed to Rock in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">14) The song genre was Pop as opposed to Country in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">15) The song genre was Pop as opposed to Rap in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>                
+
+           <form action="">
+                <label class="statement">16) The song genre was Pop as opposed to Alternative in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">17) The song genre was Rock as opposed to Country in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>                
+
+           <form action="">
+                <label class="statement">18) The song genre was Rock as opposed to Rap in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">19) The song genre was Rock as opposed to Alternative in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">20) The song genre was Country as opposed to Rap in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">21) The song genre was Country as opposed to Alternative in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+
+           <form action="">
+                <label class="statement">22) The song genre was Rap as opposed to Alternative in your decision to sing it?</label>
+                <ul class='likert'>
+                  <li>
+                    <input type="radio" name="likert" value="1">
+                    <label>Equal Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="3">
+                    <label>Moderate Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="5">
+                    <label>Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="7">
+                    <label>Very Strong Importance</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="likert" value="9">
+                    <label>Extremely Important</label>
+                  </li>
+                </ul>
+    </div>
+
+
+<!-- <label class="statement">2) How important was your preference to listen to the song as opposed to your familiarity with it in your decision to sing?</label> -->
+<!-- <label class="statement">2) How important was your preference to listen to the song as opposed to your familiarity with it in your decision to sing?</label> -->
+
+    <div id="locals">
+        
+    </div>
+
+</div>
+
+<!--     <div class="panel-body", id="test">
+        <fieldset data-role="controlgroup" data-type="horizontal"><label>2. What is your sex?</label><br />
+            <input id="female" name="Sex" type="radio" value="Female" /><br /><label for="female">Female </label> 
+            <input id="male" name="Sex" type="radio" value="Male" /><label for="male"> Male </label>
+        </fieldset>
+    </div> -->
+<!--     <script>
+        var audiotag = document.getElementById("audiotag1"),
+            test = document.getElementById("test"),
+            played = document.getElementById("played"),
+            times_played = 0,
+            max_plays = 2;
+        test.addEventListener('click', function() {
+            if (times_played < max_plays) {
+                audiotag.play();
+                times_played++;
+            }
+        });
+    </script> -->
+
+  <!--   <div class="panel-body">
+    	<fieldset data-role="controlgroup" data-type="horizontal">
+        <label>2. What is your sex?</label>
+
+        <div class="radio">
+            <label>
+                <input name="Sex" type="radio" value="Female" />Female </label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input name="Sex" type="radio" value="Male" />Male </label>
+        </div>
+        </fieldset>
+    </div>
+
+    <div class="panel-body">
+        <label>3. How fluent are you in speaking English? (1 = Started learning recently, 5 = Completely fluent.)</label>
+
+        <div class="radio">
+            <label>
+                <input name="Fluent" type="radio" value="1" />1</label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input name="Fluent" type="radio" value="2" />2</label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input name="Fluent" type="radio" value="3" />3</label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input name="Fluent" type="radio" value="4" />4</label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input name="Fluent" type="radio" value="5" />5</label>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <label>4. Do you have corrected hearing (e.g. hearing aid, or through surgery)?</label>
+
+        <div class="radio">
+            <label>
+                <input name="CorrectedHearing" type="radio" value="yes" />Yes</label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input name="CorrectedHearing" type="radio" value="no" />No</label>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <label>5. How many years of musical training have you received?</label>
+            <select class="form-control" name="MusicalTraining">
+                <option selected="selected" value="select one">- select one -</option>
+                <option value="0">None</option>
+                <option value="1">Less than 1 year</option>
+                <option value="1-2">1-2 years</option>
+                <option value="3-4">3-4 years</option>
+                <option value="5+">Over 5 years</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <label>6. Approximately how many hours of music do you listen to a week?</label>
+            <select class="form-control" name="ListeningHours">
+                <option selected="selected" value="select one">- select one -</option>
+                <option value="0">None</option>
+                <option value="1-3">1-3 hours</option>
+                <option value="4-6">4-6 hours</option>
+                <option value="7-9">7-9 hours</option>
+                <option value="10+">10+ hours</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <label>7. Which of the following music genres do you like? (ctrl+click to select multiple)</label>
+            <select class="form-control" multiple="multiple" name="GenrePreference" size="5">
+                <option>Pop</option>
+                <option>Alternative</option>
+                <option>Country</option>
+                <option>Latin</option>
+                <option>Rap</option>
+                <option>Blues</option>
+                <option>Jazz</option>
+                <option>Rock</option>
+                <option>Classical</option>
+                <option>Metal</option>
+                <option>R&amp;B</option>
+            </select>
+        </div>
+    </div> -->
+</section>
+
+<script>
+    var audiotag1a = document.getElementById("audiotag1a"), test = document.getElementById("button1a"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag1a.play(); times_played++; } });
+    var audiotag1b = document.getElementById("audiotag1b"), test = document.getElementById("button1b"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag1b.play(); times_played++; } });
+    var audiotag2a = document.getElementById("audiotag2a"), test = document.getElementById("button2a"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag2a.play(); times_played++; } });    
+    var audiotag2b = document.getElementById("audiotag2b"), test = document.getElementById("button2b"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag2b.play(); times_played++; } });    
+    var audiotag3a = document.getElementById("audiotag3a"), test = document.getElementById("button3a"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag3a.play(); times_played++; } });    
+    var audiotag3b = document.getElementById("audiotag3b"), test = document.getElementById("button3b"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag3b.play(); times_played++; } });
+    var audiotag4a = document.getElementById("audiotag4a"), test = document.getElementById("button4a"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag4a.play(); times_played++; } });    
+    var audiotag4b = document.getElementById("audiotag4b"), test = document.getElementById("button4b"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag4b.play(); times_played++; } });    
+    var audiotag5a = document.getElementById("audiotag5a"), test = document.getElementById("button5a"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag5a.play(); times_played++; } });    
+    var audiotag5b = document.getElementById("audiotag5b"), test = document.getElementById("button5b"), played = document.getElementById("played"), times_played = 0, max_plays = 2; test.addEventListener('click', function() { if (times_played< max_plays){ audiotag5b.play(); times_played++; } });            
+</script>
+
+
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" />
+<style type="text/css">
+    #collapseTrigger {
+        color: #fff;
+        display: block;
+        text-decoration: none;
+    }
+    #submitButton {
+        white-space: normal;
+    }
+    .image {
+        margin-bottom: 15px;
+    }
+    textarea.form-control {
+        height: 200px;
+        /* Fix for textarea overlapping submit button */
+    }
+    /* CSS for breaking long words/urls */
+    .dont-break-out {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        word-break: break-all;
+        word-break: break-word;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    .FAC{
+    	text-align:center;
+    }
+
+    #pair1, #pair2, #pair3,#pair4,#pair5 {
+        border-bottom: 3px 
+        solid #4588ba; 
+        margin-bottom: 20px;
+    }
+
+    form .statement {
+      display:block;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 30px 0 0 4.25%;
+      margin-bottom:10px;
+    }
+    form .likert {
+      list-style:none;
+      width:100%;
+      margin:0;
+      padding:0 0 35px;
+      display:block;
+      border-bottom:2px solid #4588ba;
+    }
+    form .likert:last-of-type {border-bottom:3px;}
+    form .likert:before {
+      content: '';
+      position:relative;
+      top:11px;
+      left:9.5%;
+      display:block;
+      background-color:##4588ba;
+      height:4px;
+      width:78%;
+    }
+    form .likert li {
+      display:inline-block;
+      width:19%;
+      text-align:center;
+      vertical-align: top;
+    }
+    form .likert li input[type=radio] {
+      display:block;
+      position:relative;
+      top:0;
+      left:50%;
+      margin-left:-6px;
+      
+    }
+    form .likert li label {width:100%;}
+    form .buttons {
+      margin:30px 0;
+      padding:0 4.25%;
+      text-align:right
+    } 
+    form .buttons button {
+      padding: 5px 10px;
+      background-color: #67ab49;
+      border: 0;
+      border-radius: 3px;
+    }
+
+
+</style>
