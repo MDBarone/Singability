@@ -1,0 +1,91 @@
+\section{Experiment One}
+
+
+To that end, multiple criterion decision making models which assess complex, and potentially subjective choices may be the most appropriate paradigm to utilize. In order to overcome the subjective pitfalls described above I will modify an established complex multiple criterion decision making model known as the Analytic Hierarchy Process (AHP) \cite{saaty1990make} to assess singability. The AHP is an analytic tool that can quantify how, and to what degree, subjective criteria influence a complex decision making task. The validity of the AHP has been examined extensively \cite{vaidya2006analytic}, and has been used within government, business, and healthcare. For example, AHP can assess whether, and to what extent, moral values or experience with large budgets are more important for selecting political leader, or whether storage space or processing speed are more important when selecting a new smartphone \cite{tuarob2015quantifying}. 
+
+\subsection{Methods}
+
+\subsubsection{Analytic Hierarchical Process}\label{sec:ahp}
+The AHP first requires users to break down the decision problem into a set of global priorities. Global priorities are a set of general factors that are suspected to influence the decision-making process. Any number of factors can be included for evaluation. After global priorities are determined, levels within each priority (local priorities) are established. Once priorities have been established, the importance of each factor can be systematically evaluated to determine their contribution to the final decision relative to all other factors by doing multiple pairwise comparisons. Decision makers weigh the importance of each of these priorities using multiple pairwise comparisons, and require the decision maker to evaluate every priority relative to another. If mulitple comparisons are made, the average importance value is calculated. Once each priority has been evaluated, pairwise comparisons of local priorities are conducted within a global priority. 
+
+For example, if the goal is to determine the suitability of a smart phone for a particular region, important global priorities may include colour, storage space, and price. Decisions makers would first evaluate each global priority (i.e. the degree to which storage space is more important than colour, and the degree to which storage space is more important than price). Next, each local priority would then be compared  (i.e. each colour: black to yellow, black to red, and so on). Tradionally, AHP uses a 9-point likert scale to determine the importance of factors (1 = both factors are equally important, 9 = one factor is much more important compared to the other). Figure \ref{fig:ahpExample} illustrates the organization of global and local priorities, as well as hypothetical importance values provided in parenthesis derived from each level of analysis for the example provided above.
+
+Calculating importance values from pairwise comparisons are described with four priorities in Table \ref{tab:priorities}. In Table \ref{tab:priorities}, priority one was evaluated as more important than priority two with a value of five. Therefore, priority two with respect to priority one is the inverse, $\frac{1}{5}$. Each value is then normalized by calculating the first principal Eigen vector for every cell by dividing every value by the sum of the column. The final value is then calculated by taking the sum of the row, and dividing by the number of priorities.
+
+\begin{table}
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+& 1 & 2 & 3 & 4 \\
+\hline
+1 & 1 & 5 & 3 & 2 \\
+\hline
+2 & $\frac{1}{5}$ & 1 & 5 & 6 \\
+\hline
+3 & $\frac{1}{3}$ & $\frac{1}{5}$ & 1 & 6 \\
+\hline
+4 & $\frac{1}{2}$ & $\frac{1}{6}$ & $\frac{1}{6}$ & 1 \\
+\hline
+\end{tabular}
+\caption{Global Comparisons Table \label{tab:global}}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{tabular}{|c|c|c|c|c||c|}
+\hline
+& 1 & 2 & 3 & 4 & Priority Vector  \\
+\hline
+1 & 0.491 & 0.781 & 0.218 & 0.133 & 0.4 \\
+\hline
+2 & 0.098 & 0.156 & 0.545 & 0.4 & 0.3 \\
+\hline
+3 & 0.163 & 0.031 & .109 & 0.4 & 0.175 \\
+\hline
+4 & 0.246 & 0.031 & 0.018 & 0.067 & 0.125 \\
+\hline
+\end{tabular}
+\caption{Global Priorities Table \label{tab:priorities}}
+\end{minipage}
+\end{table}
+
+Based on previous music cognition research (described in Section\ref{sec:related}), we have selected four factors to address singability: producability, genre, preference to listen, and familiarity. Different levels of local priorities are established for each global priority. Five levels for genre were selected, Rock, Pop, Alternative, Country, and Rap music were selected; two levels for familiarity (high and low); three levels for producibility (easy, medium, hard) and; three levels for preference to listen (low, medium, high). Figure \ref{fig:ahp} illustrates the priority heirarchy and the priority values in parenthesis derived in this experiment.
+
+\begin{figure}
+\tikzstyle{start} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{t1} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=green!30]
+\tikzstyle{t2} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=blue!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\centering
+\begin{tikzpicture}[node distance=1cm]
+\node (start) [start] {Singability};
+\node (genre) [t1, below left = of start,xshift=1cm] {Genre (0.3)};
+\node (reproduce) [t1, left = of genre] {Producibility (0.4)};
+\node (listen) [t1, below right = of start,xshift=-1cm] {Listenability (0.175)};
+\node (familiar) [t1, right = of listen] {Familiarity (0.125)};
+\node (subgenre) [t2, below = of genre,align=left] {Rock (0.75)\\Pop (0.1)\\Country (0.5)\\Metal (0.025)\\Rap (0.05)};
+\node (subreproduce) [t2, below = of reproduce,align=left] {Difficult (0.05)\\Average (0.2)\\Easy (0.15)};
+\node (sublisten) [t2, below = of listen,align=left] {Very (0.1)\\Average (0.05)\\Not very (0.025)};
+\node (subfamiliar) [t2, below = of familiar,align=left] {Very (0.1)\\Average (0.02)\\Not very (0.005)};
+\draw [arrow] (start) -| (genre);
+\draw [arrow] (start) -| (reproduce);
+\draw [arrow] (start) -| (listen);
+\draw [arrow] (start) -| (familiar);
+\draw [arrow] (genre) -- (subgenre);
+\draw [arrow] (reproduce) -- (subreproduce);
+\draw [arrow] (listen) -- (sublisten);
+\draw [arrow] (familiar) -- (subfamiliar);
+\end{tikzpicture}
+\caption{Analytic Hierarchy Process example for Singability.  This model includes 4 global priorities, with at least 3 local priorities for each factor. Bracketed values represent hypothetical importance values based on pairwise comparisons. The process of generating the importance metrics are discussed in Section \ref{sec:ahp}. \label{fig:ahp}}
+\end{figure}
+
+The downside in using AHP is that it generally requires a top-down evaluation of the factors to compute importance values; participants are instructed to use pairwise comparisons to heuristically determine how each component affects their decision making process.
+
+Additionally, because I intend to use crowdsourcing to conduct this experiment, some methodological concerns regarding the potential noisy data will likely be voiced by reviewers. Although some research suggests that the quality of crowdsourced data is more diverse, and at times better than data collected in traditional laboratory settings \cite{behrend2011viability}, additional metrics which validate or refine analysis should be considered. 
+
+Due to the methodological problems of relying on subjective analysis due to cognitive dissonance, biases, and perceptual inconsistency described in Section \ref{sec:chall}, and to overcome the potential issue of noisy data from crowdsourcing, I will include a bottom-up validation step that considers inter-, and intra-rater reliability from individual assessments into the AHP process. I describe this experimental methodology, and the additional layer analysis in the following sections.
+
+\subsubsection{Forced-Alternative Choice}
+
+\subsubsection{Materials}
+- Mturk, 

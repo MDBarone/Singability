@@ -1,0 +1,175 @@
+\section{Introduction}
+New approaches to understanding music cognition come at a time when digital music services such as Apple, Google, Amazon, and Spotify are seeing unprecedented growth within the music industry. Computationally focused music analysis is best embodied in Music Information Retrieval (MIR) \cite{downie2003music}. A fundamental task of MIR is the development of acoustic feature extractors that automatically capture unique characteristics from a recorded piece of sound. However, some acoustic features may not be wholly represented in the acoustic signal, and MIR has been criticized for failing to model their analysis based on psychological research \cite{aucouturier2013seven}. For example, ``danceability'' is a feature available in signal processing packages \cite{bogdanov2013essentia,bogdanov2009low} and open-access APIs\footnote{\url{https://developer.spotify.com/web-api/get-audio-features/}} using a combination of features such as beat salience and consistency to derive a metric between zero and one \cite{streich2005detrended}. However, according to this definition the most danceable song should be a steady, metronomic-like pulse, which clearly does not capture the perceptual nuances of what makes music danceable \cite{friberg2014using}. It may be more accurate to say that the danceability feature is closer to the ability to detect the tactus of an audio sample. 
+
+The inclusion of psychological acoustic features using signal-only analysis is surprising, given that music is dynamic system influenced by cognitive \cite{koelsch2005towards}, cultural, market and political forces \cite{bielby2004managing}. Despite this knowledge, research is relatively sparse as to how, or to what degree, specific features influence musical preference. Part of the scarcity in research may be due to the relative difficulty in developing a method that can quantify the influence of important psychological features in an emperical, and operational manner. This work examines the extent to which an interdisciplinary approach using cognitive psychology, signal processing, machine learning, and economic decision making can be used to investigate an unexplored psychological perception of ``singability'': the degree to which a recorded piece of music is attractive for singing. 
+
+Although this problem may appear trivial at face value, it is an important area of research at the intersection of music cognition and computation. On average, US citizens spend an average of 4 hours a day listening to music \cite{webster2015share}, and 18-34 year olds spent \$163 per year on music events and services.\footnote{\url{http://www.digitalmusicnews.com/2016/01/08/one-third-of-all-music-spending-goes-to-live-events/}} Digital karaoke applications such as Smule's Sing \footnote{\url{https://www.smule.com/listen/sing-karaoke/8}} have become increasingly popular in recent years, reaching over 50 million of users every month worldwide.\footnote{\url{https://www.forbes.com/sites/mnewlands/2016/09/20/smule-has-changed-the-music-industry-completely-heres-how/\#1f8e1fb041c0}}. Companies like Smule and Spotify need established representations of music cognition in order maximize user satisfaction through automated machine learning algorithms. Furthermore, understanding aspects of music preference provides evidence into one of the earliest questions in the life sciences examined since Darwin \cite{darwin1871descent,darwin1883descent}. However, despite years of traditional scientific research from cognitive psychology \cite{pinker1999mind,huron2001music,cross2012music} anthropology \cite{mithen2006singing,patel2003language}, neuroscience \cite{peretz2005brain}, and musicology \cite{wallin2001origins}, conclusive understandings of fundamental aspects of music cognition and preference remain obscure. Endeavours which meet at the intersection of traditional music cognition and MIR may address the longstanding lacuna in academic progress in the understanding of music perception. Because most MIR extractors consider only the acoustic signal and ignore important behavioural information that could improve classification, the objective of this research is to address this lacuna by exploring whether a psychological feature of music like singability can be derived from an acoustic signal with behavioural labels using an integrated approach. To date, no research has been conducted which explores whether a feature such as singability can be extracted from music.
+
+\subsection{Related Work}\label{sec:related}
+Determining a complex psychological process and decision making strategy like singability is a difficult task. To start, it is initially unclear how to quantify such a subjective multiple criterion choice in a controlled, scientific manner; how does one determine how familiarity and producibility impact the final choice to sing or how they interact with each other? Furthermore, relatively little research has attempted to quantify singing preference, and the preference literature in other species such as from birds does not transfer well to humans. Because singability will likely not contain a universally agreed upon set of factors, the major challenge is how to quantify which, or to what degree, these factors should be incorporated into a model for evaluation. 
+
+The most directly relevant research regarding singability has focused on music recommendation systems for digital karaoke applications \cite{mao2014song,mao2015competence}. These systems use a competence-based evaluation, and recommend music based on an individual's singing proficiency. Although the general idea that preference to sing a song is based on whether one can recreate the original performance may be an attractive sole criteria for singability \cite{guan2017efficient}, it fails to consider other aspects of preference, such as the importance of complexity and familiarity on preference. Furthermore, virtually all songs can be sung by an individual regardless of vocal proficiency if transposed to a range and style of their preference. Indeed, songs which have been revised into a novel form are often highly appreciated for their ingenuity and creativity, and can still be highly singable. For example, Man Who Sold the World was comparatively obscure David Bowie song until Nirvana's acoustic reinterpretation of it in the early nineties revived interest in the track and album at large. Furthermore, no scientific research has established a link between singing proficiency and preference to sing. By this logic, if the ability to recreate an original version of a song is the sole criteria for determining singable tracks, a naive extension to improve performance would be to recommend songs based on demographic features such as age, sex, and height through automated assessment of singing voice \cite{Weninger2011}.
+
+Somewhat tangential, the role of multiple factors jointly influencing preference in other media such as films has examined the influence of genre, star power, and critics' reviews on performance \cite{desai2005interactive}. \cite{desai2005interactive} examined how each of these factors influence market performance in tandem. It was found that for more familiar films, each factor influenced market performance less. When films were less familiar, star power and positive valenced reviews impacted market performance more than films with a higher degree of media exposure. The effect of positive reviews influencing market performance was amplified with greater star power. Although album reviews and market penetration are not directly related to cognitive representations of singing preference, this research represents the closest analysis examining how multiple factors simultaneously contribute to media preference.
+
+% Singing and social bonding as a reason for the confusion? Could introduce health/cognitive benefits of singing with a group
+
+Perhaps the historically relevant psychological research relating to singing preference was initially proposed in \cite{yerkes1908relation} (now referred to as the Yerkes-Dodson law; Figure \ref{fig:yerkes}), and later expanded to music in the optimal complexity model by Berlyne \cite{berlyne1970novelty}. Berlyne suggests that music exhibits an inverted-U-shaped relationship of preference, influenced by novelty, complexity, and tone. This model has been supported independently through various perspectives including personality and preference research \cite{north1995subjective} and investigation of flow states \cite{csikszentmihalyi1996flow}. 
+
+\begin{figure}
+\includegraphics[width=\linewidth]{yerkes.png}
+\caption{Hebbian illustration of Yerkes-Dodson Law provided on: \url{https://en.wikipedia.org/wiki/Yerkes\%E2\%80\%93Dodson_law}}\label{fig:yerkes}
+\end{figure}
+
+We examine the concept of singability using a synthesis of multiple-criterion decision making processes, acoustic feature extraction, and machine learning founded on a theoretical background of music cognition. Based on the general research discussed above, we expand the interpretation of singability from other research \cite{mao2014song,mao2015competence} to include more factors than just the ability to reproduce the original rendition of a track. For the purpose of this work, singability is defined as a psychological process which includes how attractive a song is to sing without concern of social consternation for being unable to produce the original vocalizations. Based on this refined definition, factors which impact singability include: i) familiarity, ii) genre, iii) producibility, and iv) preference to listen (listenability). Next, we highlight research specific to these factors, then describe a method to quantify the prioritization of them when making a complex, multiple criterion decision.
+
+\subsubsection{Familiarity and Genre}
+Familiarity has important influences on preference formation. The mere exposure effect, a foundational psychological concept \cite{meyer1903experimental,zajonc1968attitudinal} demonstrates that increased exposure with essentially anything increases your preference for it, even when unaware of it's inclusion in your immediate environment \cite{mandler1987nonspecific}. In this, and subsequent research \cite{peretz1998exposure}, the mere exposure effect was also found to impact music preference; multiple repetitions of unfamiliar music \cite{meyer1903experimental}, and random tone sequences \cite{wilson1979feeling} increases preference to them. A possible reason for why familiarity increases preference is because it improves ease of processing \cite{novemsky2007preference}, impacting the complexity component of Berlyne's optimal complexity model described in Section \ref{sec:related}. Indeed, the relationship between familiarity, ease of processing and preference through mere exposure appears to occur early in cognitive processing; Korsakoff amnesics demonstrate increased liking to musical stimuli through increased exposure \cite{johnson1985alcoholic}.
+
+For the purposes of this experiment, familiarity is broken down into two subcategories: familiarity through genre preference and general familiarity:
+
+\subsubsection{Genre Familiarity}
+Familiarity through genre preference describes a specific aspect of the mere exposure effect through common acoustic features which are hallmark in the genres you typically listen to. For example, Rap music has a high degree of speech, and Metal music generally is high tempo, and with negative valence. This form of familiarity is more active and personal, aligning more closely to the role that individual preference plays in exposure. Neurological evidence for an active mere exposure effect through genre has been demonstrated in brain imaging studies. Using electroencephalography, Mismatch Negativity Responses (MMNs; a spike in brainwave polarization when expectations are violated) can be elicited with tone sequences in the first few trials regardless of formal musical training \cite{Tervaniemi2014}. Furthermore, \cite{tervaniemi2016auditory} found that MMN responses, were stronger when genre conventions were defied in a participants preferred musical style. For example, Jazz-experts exhibited higher negativities when listening to Jazz violations than Rock. Genre-specific familiarity preferences have also been corroborated in massive digital consumption studies. In a study containing 17 million users from over 30 countries, users download tracks of secondary genres similar acoustic features similar to those of their most preferred genre \cite{barone2017acoustic}. For example, users who had clear preferences for Rap music preferentially downloaded tracks from other genres that contained more speech sounds and were more danceable. We therefore hypothesize that genre plays an important role in the selection of a preferred song to sing.
+
+
+\paragraph{General Familiarity}
+General familiarity refers to exposure with music that an individual does not directly control; music heard when walking down the street, in a store, or during television commercial breaks are all instances of general exposure. This form of familiarity is passive, and most closely aligns with effects produced through the mere exposure effect. Furthermore, familiarity of music played in our immediate environment throughout development also impacts preference and recall. The reminiscence bump \cite{rubin8c}, a psychological tendency to most saliently recall and prefer events teenage years also extends to music. Recall relates to familiarity and singability because we rely on past experience and memory when making future decisions. \cite{Krumhansl2013} demonstrated that individuals tend to first recall music that was listened to when they were between the ages of 16-28. What's most noteworthy though is that a ``cascading reminiscence bump'' was also found; people tended to saliently recall music from when their parents reminiscence period, indicating that familiar music they were exposed to growing up influences their memory and preference later in life. However, it is important to consider that increased familiarity necessarily increases preference; most people do not actively listen to extremely familiar songs such as Twinkle, Twinkle, Little Star. This makes sense when considering Berlyne's optimal complexity model (Section \ref{sec:related}) - extremely familiar music is too simple to engage an individual. Therefore, it is hypothesized that although familiar music is important for singability, music that is too familiar will not be preferred.
+
+\subsubsection{Listenability}
+The definition of listenability used for this research refers to how likely in general the song is attractive to listen to. Although it may be appealing to suggest that songs that are listenable are by extension singable, they must be considered mutually exclusive. For example Rap or Metal music for example may fit this category as the vocalizations required are not conducive for singing, but are still highly popular and can be very listenable. Furthermore, listenability is distinct from familiarity, but can be influenced by it. As suggested in Section \ref{sec:related}, nursery rhymes are highly familiar, but are likely not considered highly listenable by most. This may occur for many reasons, including being too simple (violating the Yerkes-Dodson law, and Berylne's model), or being oversaturated for a listener who desires some degree of novelty in their listening choices. Highly listenable songs may also not be familiar because older tracks are played significantly less than newly released (novel) listenable songs. 
+
+Listenability may be best differentiated from familiarity in that it can be an immediate process, requiring only a single exposure in order to be evaluated as attractive. Cognitive processing of various complex musical features can happen at millesecond timescales. For example, humans can recognize a song with only a single note and timbre cues, and can determine the emotion and genre within 400ms \cite{krumhansl2010plink}. The ability to quickly evaluate complex aspects of a piece of music is important for the distinction between of listenability and familiarity by providing a support for different cognitive processes involved in perceiving them.
+
+Based on these considerations, listenability is more closely related to psychological concepts of ``earworms''\cite{wallin2001origins} and catchiness than familiarity. Earworms, or involuntary musical imagery, are phenomena that are more colloquially described as songs that gets stuck in your head \cite{williamson2012earworms}. Although music that is heard more than once is more likely to produce an earworm \cite{byron2015repetition}, listenability is still differentiated from familiarity under this definition because of how quickly they can be contracted; only a single exposure is also required for a song to produce one \cite{meyer1903experimental}. Furthermore, music that is very catchy is tends to be more prone to earworms than others. Researchers have attempted to quantify the acoustic features of involuntary musical imagery through the generation of catchiness and chorusness metrics \cite{Burgoyne2013,Gao2015}. When detecting choruses automatically, timbre, and timbre variety are more strongly related than harmony or absolutel pitch height \cite{VanBalen2013}
+
+Listenability is considered an important factor for singablility because it increases the likelihood that a song will be selected to or attended by users (thus directly influence the likelihood it will be sung in the first place), and because songs which produce an auditory earworm will more likely influence whether or not an individual decides to sing it because they are more salient in memory.
+
+\subsubsection{Producibility}
+Music cognition research has examined the distinction of singing quality; the perceptual or acoustic features that make trained singers sound better than amateurs. Quality of singing voice has been assessed with respect to full upper resonance in a singer's formant range (known as the singer's formant, a prominent spectral envelope of 3kHz) as an important component of singing voice quality \cite{bartholomew1934physical}. Professional singers have higher formant intensity than untrained voices. More specifically, relative amplitudes of singer's formants grew as vocal intensity increased and diminish as pitch rose \cite{schultz19793}, trained voices have more energy in the formant range but not for all pitches, and males in general have higher formant intensity than females \cite{schultz19793}. The singer's formant appears to be a particularly important property for classical operatic singers to project above the orchestra \cite{sundberg2001level}. As a way to reduce these complex features into a single value, \cite{omori1996singing} derived the song power ratio (SPR), and was significantly correlated to perceived singer quality.
+
+While relatively tangential to the concept of what makes a song attractive to sing, undoubtedly poor singing will make a track less appealing for others to select \cite{yerkes1908relation,berlyne1970novelty,csikszentmihalyi1996flow}. This research highlights the importance of complexity in engagement and is in line with the foundational psychological research on engagement described in Section \ref{sec:related}; in order to maintain interest, a task must be within a particular level of complexity to be engaging. Easy tasks are boring, and tasks which are too difficult are discouraging. To that end, an important feature to consider when evaluating if \textit{singability} is a Yerkes-Dodson curve (Figure \ref{fig:yerkes}) with difficulty for the general population to match the vocalizations as a dimension that influences arousal and performance.
+
+Although measures regarding whether an individual has vocal training can be assessed through spectral analysis through the singer's formant, producibility is not contingent on these features. When song tempos are slower, the general population are able to sing accurately \cite{DallaBella2007}. Furthermore, untrained individuals with self-expressed singing talent have identical pitch matching accuracies when compared to trained singers \cite{Watts2003}. Interestingly, untrained singers had superior pitch matching accuracy when external auditory feedback was masked. When untrained, self-reported untalented singers do make errors, they tended to error often \cite{DallaBella2007}, indicating that the ability to produce vocals is generally achievable by most assuming the track is within their vocal range. These findings also reduce the efficacy of using producibility as the sole factor for singability. Producibility based on vocal features which indicate professional training may also not be appropriate because the correlation between genre preference and training does not align with what is popularly sung; individuals with more musical training show increased preferences for ``serious'' genres such as Classical and Jazz, but not other genres such as Pop \cite{Hargreaves1995}.
+
+ 
+
+% Sundberg \cite{sundberg1994perceptual} describes two aspects of timbre in voice sounds: vowel quality (the specific utterance) and voice quality (vocal qualities of the singer). Vowel quality pertains to the first two formant frequencies \cite{fujisaki1968roles}. Perception of brightness is attributed to the first two formants; brightness is dependent on high partials and narrow formant bands, whereas darkness is dependent on the opposite \cite{arment1989study}, and intensity in the second, and third formants \cite{gunn1989acoustical}. Voice quality is found in higher formant range. The amount of formants required to generate a realistic synthesis of alto, tenor, baritone, and bass voices requires formants 3-5; soprano voices lack a singer's formant due to the frequency range \cite{sundberg1994perceptual}. 
+
+\section{Experiment One: Validating Singability}
+To our knowledge, there is no prior work that examines whether a heuristic analysis of what makes a song singable correlates with what individuals actually select in a natural setting. Determining whether attitudes match actual decision making is most directly related to cognitive dissonance, a psychological effect where one may have inconsistent beliefs that can lead to false conclusions. For example, \cite{tsay2013sight} instructed professional musicians to evaluate recordings of top-three performance from competition under three conditions, recordings with: i) video only, ii) audio only, or iii) both. Evaluators state that musical technique was the most important factor when evaluators were most likely agree with who won the competition was highest in the video-only condition, followed by audio plus video, and then audio only. Therefore, it is important to first develop a method to assess whether there is a empirical consistency between an people's bottom-up decision for any given set of songs, and their top-down impressions of what led to their choice. We combine a series of psychological analysis methods used to establish whether singability can be consistently assessed among individuals using a set of 50 popular song excerpts. To establish a bottom-up groundtruth a forced alternative choice (FAC) experiment is conducted with pairs of songs; a complex decision making model known as Analytic Hierarchical Process (AHP) \cite{saaty1990make} is used to determine top-up impressions. We then rank songs based on their asssessed singability using both methods (FAC and AHP) to determine whether there is consistency between what we think is singable, and what our decisions end up enevitably being. An additional benefit of using AHP is that it can provide values regarding the degree to which each of the four features described above contributes to an individuals decision to choose a song to sing. Prior to reporting experimental structure, we briefly describe AHP and how it is conducted.
+
+
+% Multiple criterion decision making models which assess complex, and potentially subjective choices may be the most appropriate paradigm to utilize. In order to overcome the subjective pitfalls described above we modify an established complex multiple criterion decision making model known as the Analytic Hierarchy Process (AHP) \cite{saaty1990make} to assess singability. 
+
+ % I will include a bottom-up validation step that considers inter-, and intra-rater reliability from individual assessments into the AHP process. 
+
+\subsection{Analytic Hierarchical Process}\label{sec:ahp}
+AHP is an technique to quantify how, and to what degree, subjective criteria influence a complex decision making task. The validity of the AHP has been examined extensively \cite{vaidya2006analytic}, and has been used within government, business, and healthcare. For example, AHP evaluates whether, and to what extent, moral values or experience with large budgets are more important for selecting political leader, or whether storage space or processing speed are more important when selecting a new smartphone \cite{tuarob2015quantifying}.
+
+Determining singability using AHP involves breaking down the decision problem into a set of global priorities. Global priorities are a set of general factors that are suspected to influence the decision-making process. Any number of factors can be included for evaluation. After global priorities are determined, levels within each priority (local priorities) are established. Once priorities have been established, the importance of each factor can be systematically evaluated to determine their contribution to the final decision relative to all other factors by doing multiple pairwise comparisons. Decision makers weigh the importance of each of these priorities using multiple pairwise comparisons, and require the decision maker to evaluate every priority relative to another (see Table \ref{tab:global}). If multiple comparisons are made, the average importance value is calculated. Once each priority has been evaluated, pairwise comparisons of local priorities are conducted within a global priority.
+
+For example, if the goal is to determine the suitability of a smart phone for a particular region, important global priorities may include colour, storage space, and price. Decisions makers would first evaluate each global priority using likert scales (i.e. the degree to which storage space is more important than colour, and the degree to which storage space is more important than price). Next, each local priority would then be compared  (i.e. each colour: black to yellow, black to red, and so on). Figure \ref{fig:ahpExample} illustrates the organization of global and local priorities, as well as hypothetical importance values provided in parenthesis derived from each level of analysis for the example provided above.
+
+% Traditionally, AHP uses a 9-point Likert scale to determine the importance of factors (1 = both factors are equally important, 9 = one factor is much more important compared to the other). 
+Example importance values from pairwise comparisons using four priorities calculated from Table \ref{tab:global} are then normalized then converted to a weighted importance metric between zero and one (Table \ref{tab:priorities}). Priority one was evaluated as more important than priority two with a value of five. Therefore, priority two with respect to priority one is the inverse, $\frac{1}{5}$. Each value is then normalized by calculating the first principal Eigen vector for every cell by dividing every value by the sum of the column. The final column (priority vector) is then calculated by taking the sum of the row, and dividing by the number of priorities. The priority vector column represents the relative importance of the row's feature.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+& 1 & 2 & 3 & 4 \\
+\hline
+1 & 1 & \textbf{5} & 3 & 2 \\
+\hline
+2 & \textbf{$\frac{1}{5}$} & 1 & 5 & 6 \\
+\hline
+3 & $\frac{1}{3}$ & $\frac{1}{5}$ & 1 & 6 \\
+\hline
+4 & $\frac{1}{2}$ & $\frac{1}{6}$ & $\frac{1}{6}$ & 1 \\
+\hline
+\end{tabular}
+\caption{Global Comparisons Table. Columns and rows indicate a decision making criteria. Cell represents the importance of the row, relative to the column. The bolded five in cell (1,2) illustrates that global priority one was evaluated as much more important than priority two. Values less than one (such as cell (2,1)) represent that the other feature was evaluated as more important. \label{tab:global}}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c||c|}
+\hline
+& 1 & 2 & 3 & 4 & Priority Vector  \\
+\hline
+1 & 0.491 & 0.781 & 0.218 & 0.133 & 0.4 \\
+\hline
+2 & 0.098 & 0.156 & 0.545 & 0.4 & 0.3 \\
+\hline
+3 & 0.163 & 0.031 & .109 & 0.4 & 0.175 \\
+\hline
+4 & 0.246 & 0.031 & 0.018 & 0.067 & 0.125 \\
+\hline
+\end{tabular}
+\caption{Global Priorities Table \label{tab:priorities}. The final column represents the weighted importance value of that priority, i.e. priority one is 40\% important in the deciding whether a song is singable.}
+\end{table}
+
+
+
+\begin{figure*}
+\tikzstyle{start} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{t1} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=green!30]
+\tikzstyle{t2} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=blue!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\centering
+\begin{tikzpicture}[node distance=1cm]
+\node (start) [start] {Singability};
+\node (genre) [t1, below left = of start,xshift=1cm] {Genre (0.3)};
+\node (reproduce) [t1, left = of genre] {Producibility (0.4)};
+\node (listen) [t1, below right = of start,xshift=-1cm] {Listenability (0.175)};
+\node (familiar) [t1, right = of listen] {Familiarity (0.125)};
+\node (subgenre) [t2, below = of genre,align=left] {Rock (0.75)\\Pop (0.1)\\Country (0.5)\\Metal (0.025)\\Rap (0.05)};
+\node (subreproduce) [t2, below = of reproduce,align=left] {Difficult (0.05)\\Average (0.2)\\Easy (0.15)};
+\node (sublisten) [t2, below = of listen,align=left] {Very (0.1)\\Average (0.05)\\Not very (0.025)};
+\node (subfamiliar) [t2, below = of familiar,align=left] {Very (0.1)\\Average (0.02)\\Not very (0.005)};
+\draw [arrow] (start) -| (genre);
+\draw [arrow] (start) -| (reproduce);
+\draw [arrow] (start) -| (listen);
+\draw [arrow] (start) -| (familiar);
+\draw [arrow] (genre) -- (subgenre);
+\draw [arrow] (reproduce) -- (subreproduce);
+\draw [arrow] (listen) -- (sublisten);
+\draw [arrow] (familiar) -- (subfamiliar);
+\end{tikzpicture}
+\caption{Analytic Hierarchy Process example for Singability. This model includes 4 global priorities, with at least 3 local priorities for each factor. Bracketed values represent hypothetical importance values based on pairwise comparisons. The process of generating the importance metrics are discussed in Section \ref{sec:ahp}. \label{fig:ahpExample}}
+\end{figure*}
+
+\subsection{Methods}
+The dataset contains exercepts of 50 songs (ten songs from five genres) from the top 50 Billboard chart songs between the years of 2011-2015 (see Appendix for song list and rank). In order to reduce high degrees of familiarity, songs from the bottom of the list were selected. 15-seconds of audio was extracted from each artist's official YouTube channel. Samples were converted at a rate of 320kB as mp3s. These exercepts are utilized during FAC.
+
+A two-part online survey was crowdsourced using Amazon's Mechanical Turk. The first part of the experiment consisted
+
+Although some research suggests that the quality of crowdsourced data is more diverse, and at times better than data collected in traditional laboratory settings \cite{behrend2011viability}, additional metrics which validate or refine analysis should be considered. 
+
+Based on previous music cognition research (described in Section \ref{sec:related}), we have selected four factors to address singability: producability, genre, preference to listen, and familiarity. Different levels of local priorities are established for each global priority. Five levels for genre were selected, Rock, Pop, Alternative, Country, and Rap music were selected; two levels for familiarity (high and low); three levels for producibility (easy, medium, hard) and; three levels for preference to listen (low, medium, high). Figure \ref{fig:ahp} illustrates the priority hierarchy and the priority values in parenthesis derived in this experiment.
+
+\subsubsection{Materials}
+- Mturk, 
+
+
+\section{Limitations}
+- No genre preference information about users
+- In this study, reproducibility can't be quantified and included in the AHP ranking, but could be in the future.
+- Other important features which impact the ability to produce the vocalizations of a song are represented in speech and perception research. Namely, the complexity of language \cite{ellis15}, the ability to pronounce the words \cite{patil2010evaluating}, and the ability to intelligibly understand vocalizations \cite{ibrahim17} are all features that can be considered important for the ability to produce a song.
+- the role of lyrics
+
+
+\begin{acks}
+  The authors would like to thank Dr. Yuhua Li for providing the
+  MATLAB code of the \textit{BEPS} method.
+
+  The authors would also like to thank the anonymous referees for
+  their valuable comments and helpful suggestions. The work is
+  supported by the \grantsponsor{GS501100001809}{National Natural
+    Science Foundation of
+    China}{http://dx.doi.org/10.13039/501100001809} under Grant
+  No.:~\grantnum{GS501100001809}{61273304}
+  and~\grantnum[http://www.nnsf.cn/youngscientists]{GS501100001809}{Young
+    Scientists' Support Program}.
+
+\end{acks}
